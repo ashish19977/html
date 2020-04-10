@@ -1,0 +1,197 @@
+<html>
+<head><style>
+    #div1{
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        background-color: #5DADE2  ;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #div2{
+        width: 100%;
+        height:60%;
+        margin-top: 25%;
+        display: flex;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+    input{
+        width:85%;
+        margin:7%;
+        height: 60%;
+        border-radius: 10px;
+        border: none;
+        font-size: 80px;
+        text-align: center;
+        background-color: #76D7C4
+    }
+    #plybtn{
+        height: 30%;
+        width: 40%;
+            border-radius: 8px;
+        border: none;
+        font-size: 40px;
+        background-color:#66E31E;
+        color: white;
+    }
+    #btnplayagain{
+            border-radius: 8px;
+        border: none;
+        font-size: 40px;
+        background-color:#66E31E;
+        color: white;
+        padding: 52px;
+    }
+    .my{
+        font-size: 35px;
+        font-family: cursive;
+    }
+    span{
+        margin-top: 200px;
+        font-size: 30px;
+        font-weight: bolder;
+        font-family: monospace;
+    }
+    #winner
+    {
+        display: none;
+ height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,.1);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    </style>
+    </head>
+<body>
+    <div id="winner"><p id="winnername" class="my"></p><p>
+        <button id="btnplayagain" onclick="relo()">Challenge Again</button></p></div>
+    
+   <div id="div1">
+       
+        <p id="totalstk" class="my"></p>
+       <div id="stick"> </div>
+       <button onclick="change()" id="plybtn">
+       Lets Play !!!
+       </button>
+       <div style="margin-top: 5%">Rules:
+           <p>1. There are total 20 sticks.</p>
+           <p>2. You can pick maximum 3 sticks at once.</p>
+           <p>3. The player who will pick the last stick will win.</p>
+       </div>
+       
+       <div id="div2" style="margin: 5px;"><div><center><span>Player 1</span></center><input id="a"></div><div><center><span>Player 2</span></center><input id="b"></div></div>
+    </div>
+    
+    
+    
+    </body>
+    <script>
+         var mNo=20;
+         function change()
+{
+    
+     document.getElementById("plybtn").style.display="none";
+   
+    document.getElementById("div2").style.display="flex";
+    
+     document.getElementById("totalstk").innerHTML="Total Sticks !!!  "+mNo 
+    
+}   
+       
+         var b=Math.abs(parseInt(document.getElementById("a").value))
+         
+        document.getElementById("a").addEventListener("keyup",function(event){
+            if(event.keyCode==13){
+                event.preventDefault();
+                 var a=Math.abs(parseInt(document.getElementById("a").value))
+                
+                play(a,document.getElementById("a").id)
+            }
+        })  ;
+        document.getElementById("b").addEventListener("keyup",function(event){
+            if(event.keyCode==13){
+                event.preventDefault();
+               
+                 var b=Math.abs(parseInt(document.getElementById("b").value))
+                 
+                play(b,"b")
+            }
+        })  ;
+          
+        
+       
+        function play(v,i){
+           while(mNo!=0){ 
+            if(mNo>0){
+           aturn(v,i)
+                 if(mNo==0){
+                if(i=="a"){
+                    document.getElementById("div1").style.display="none";
+            document.getElementById("winner").style.display="flex"
+                    document.getElementById("winnername").innerHTML="Sorry Player 2 !!! You Lose"
+                }
+            else{
+                document.getElementById("div1").style.display="none";
+                  document.getElementById("winner").style.display="flex"
+                document.getElementById("winnername").innerHTML="Sorry Player 1 !!! You Lose"
+            } 
+                
+            }
+               break;
+           }
+            
+           }}
+      
+        function aturn(t,i){
+            if(t>0&&t<=3&&t<=mNo)
+            { 
+                mNo=mNo-t;
+                document.getElementById("totalstk").innerHTML="Total Sticks !!!  "+mNo;
+                if(i=="a"){
+                    document.getElementById("a").value="";
+                    
+                 document.getElementById("b").disabled = false;
+                document.getElementById("a").disabled =true;
+                     document.getElementById("b").focus();
+                    
+                }
+                else{
+                    document.getElementById("b").value="";
+                     
+                document.getElementById("b").disabled = true;
+                document.getElementById("a").disabled =false;
+                    document.getElementById("a").focus();
+                }
+               }
+            else{
+                alert("enter a valid number")
+                 document.getElementById(i).value="";
+            }
+        }
+        function relo(){
+            window.location.reload();
+        }
+      /*  function bturn(){
+             var b=Math.abs(parseInt(prompt("enter ab number")))
+             if(b>0&&b<=3&&b<=mNo)
+             {
+                 mNo=mNo-b;
+               document.getElementById("totalstk").innerHTML="Total Sticks !!!  "+mNo     
+                 d=1;
+        }
+            else{
+                alert("enter a valid number")
+                bturn()
+            }
+        }*/
+        
+        
+ </script>
+    
+</html>
