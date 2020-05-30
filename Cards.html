@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cards</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding:0;
+            height: 100%;
+            color:  #5b2c6f ;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            display: grid;
+            height: 99%;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap:5px;
+            grid-template-rows: repeat(2,1fr);
+        }
+        .card{
+            grid-column: 1fr;
+            grid-row: 1fr;
+            transition: all .2s linear;
+            border-radius: 10px;
+        }
+        .card:hover{
+            scale: .98;
+        }
+        .inner{
+            border-radius: 10px;
+            width: 100%;height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: larger;
+        }
+        .profile{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            padding: 10px;
+            background-color:  #e8daef ;
+        }
+        span{
+            text-align: center;
+        }
+        .profile-pic{
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+        }
+        .post-span{
+            font-size: small;
+            margin: 0;
+        }
+        button{
+            background-color: #85c1e9 ;
+            color:   #2874a6 ;
+            border: none;
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+        }
+        .social-media-div{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 2px;
+            width: 80%;
+        }
+        .social-tab{
+            background-color: #a569bd ;
+            padding: 2px 5px 2px 5px;
+            border-radius: 3px;
+        }
+        .pic{
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            width: 100%;height: 80%;
+        }
+        .pic-info{
+            display: flex;
+            font-size: larger;
+            font-weight: 200;
+            background-color:  #ebdef0 ;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            margin-top: 1%;
+        }
+        .advance{
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/a/n/d/andro-53259.jpg');
+        }
+        .advance:hover{
+            opacity: 1;
+        }
+            .advance-info{
+            font-weight: 700;
+            font-size: large;
+            opacity: .8;
+        }
+        .advance-info:hover{
+            cursor: pointer;
+        }
+        .modal{
+            opacity: .7;
+            transition: all .3s linear;
+            height:40%;
+            width: 90%;
+            position: relative;
+            background-color:#e8daef;
+            top: -100%;
+            margin-top: 5%;
+            display: none;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+        }
+        .advance:hover .modal{
+           display: flex;
+            top: 0%;
+        }
+    </style>
+</head> 
+<body>
+    <div class="container">
+        <div class="card basic">
+            <div class='inner' style="background-color:#3498db;">1</div>
+            <div class='inner' style="height: 20%;">Card basic</div>
+        </div>
+        <div class="card basic">
+            <div class='inner' style="background-color:#58d68d;">2</div>
+            <div class='inner' style="height: 20%;">Card basic</div>
+        </div>
+        <div class="card profile">
+            <img class="profile-pic" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRzx_xJFA5knj6q8RnkwlvJ9BfS_Tu5BetPL8JgukfCAWG_Gt1P&usqp=CAU">
+            <span class="name-span">Harsh</span>
+            <span class="post-span">Java Developer</span>
+            <span class="about-span">Hey , im harsh i like working around with java. I have been in industry for last 3 yrs. Im java developer</span>
+            <button>Check out my online Profile</button>
+            <div class="social-media-div">
+                <span class="social-tab"><i class="fa fa-google"></i></span>
+                <span class="social-tab"><i class="fa fab fa-facebook"></i></span>
+                <span class="social-tab"><i class="fa fab fa-instagram"></i></span>
+                <span class="social-tab"><i class="fa fab fa-twitter"></i></span>
+            </div>
+        </div>
+        <div class="card profile">
+            <img class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjG7oWsxQ9AJdPdlkvPPykb9sphkjM9WGu3TX01ZzY7JRRHsS3&usqp=CAU" alt="">
+            <span class="name-span">ashish kumar</span>
+            <span class="post-span">fullstack developer</span>
+            <span class="about-span">Hey , im ashish i like working around with fullstack. I have been in industry for last 3 yrs. my technology stack is 
+                javaScript,react,react-native,node,mongodb
+            </span>
+            <button>Check out my online Profile</button>
+            <div class="social-media-div">
+                <span class="social-tab"><i class="fa fa-google"></i></span>
+                <span class="social-tab"><i class="fa fab fa-facebook"></i></span>
+                <span class="social-tab"><i class="fa fab fa-instagram"></i></span>
+                <span class="social-tab"><i class="fa fab fa-twitter"></i></span>
+            </div>
+        </div>
+
+        <div class="card medium">
+            <div class='pic' style="background-image: url('https://scx2.b-cdn.net/gfx/news/hires/2019/2-nature.jpg');"></div>
+            <div class='pic-info' style="height: 20%;">
+                <span >Beautiful nature</span>
+                <span style="font-size: medium;">By : ashish kumar</span>
+            </div>
+        </div>
+        <div class="card medium" >
+            <div class='pic' style="background-image: url('https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_86887171.jpg?crop=0,176,3032,1667&wid=4000&hei=2200&scl=0.758');"></div>
+            <div class='pic-info' style="height: 20%;">
+                <span >Amazing forest</span>
+                <span style="font-size: medium;">By : harsh</span>
+            </div>
+        </div>
+
+        <div class="card advance">
+            <button class="advance-info">Explore Galaxy</button>
+            <div class="modal">
+                <span class="about-span">Explore the wonderful Galaxy</span>
+                <button style="background-color:  #5b2c6f ;color: white;">Book</button>
+            </div>
+        </div>
+        <div class="card advance" style="background-image: url('https://www.technocrazed.com/wp-content/uploads/2015/08/Most-Beautiful-Photographs-To-Reveal-The-Beautiful-Namibian-Desert-110.jpg');">
+            <button class="advance-info">Explore Sand</button>
+            <div class="modal">
+                <span class="about-span">Roam in beautiful sands of rajasthan</span>
+                <button style="background-color:  #5b2c6f ;color: white;">Book</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+</script>
+</html>
