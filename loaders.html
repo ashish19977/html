@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        html,body{
+            display: flex;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .loader-1{
+            display: inline-block;
+            transform-origin: bottom center;
+            animation: spin 3s infinite linear;
+            }
+        @keyframes spin{
+            to{
+                transform: rotate(360deg); 
+            }
+        }
+        .circle{
+            width: 30px;
+            height: 30px;
+            background-color: #e000ff ;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: shrink 1.5s infinite linear;
+        }
+        .circle:nth-child(2){
+            background-color: #ff005d ;
+            animation-delay: .75s;
+        }
+        @keyframes shrink{
+            50%{
+                transform: scale(1) 
+            }
+        }
+        /* second loader */
+        .loader-2{
+            margin-left: 80px;
+            width: 80px;
+            height: 15px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 3rem;
+            color:#ff005d;
+            animation: spin2 1s ease-in-out infinite;
+        }
+        @keyframes spin2{
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        /* third laoder */
+        .loader-3{
+            margin-left: 50px;
+            color: #1fff00;
+            animation: inout 1.6s ease-in-out infinite;
+        }
+        .dot{
+            font-size: 2em;
+            padding: 5px 5px;
+            scale: .3;
+            opacity: .5;
+        }
+        @keyframes inout{
+                50%{
+                    opacity: 1;
+                scale: 2;
+                color: #32145a ;
+                }
+        }
+        /* fourth loader */
+        .loader-4{
+            margin-left: 100px;
+            color: #009fff ;
+            font-size: 3em;
+        }
+       .loader-4>*{
+           opacity: 0;
+           animation: showhide 1s ease-in-out infinite;
+       }
+       .dot-2{
+            animation-delay: .33s;   
+        }
+        .dot-3{
+           animation-delay: .66s;
+        }
+       @keyframes showhide{
+           33%{
+            opacity: 1;
+           }
+           66%{
+            opacity: 0;
+           }
+       }
+
+       /* fifth loader */
+        .ball{
+            margin-left: 50px;
+            border-radius: 5px;
+            padding: 5px;
+            color: aliceblue;
+            background-color:#32145a;
+            animation: bounce .8s ease-in-out infinite;
+        }
+        @keyframes bounce{
+            50%{
+                transform: translateY(-50px);
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="loader-1">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <div class="loader-2">
+        <span>&#8226;</span>
+    </div>
+    <div class="loader-3">
+        <span class="dot">&#8226;</span>
+        <span class="dot">&#8226;</span>
+        <span class="dot">&#8226;</span>
+    </div>
+    <div class="loader-4">
+        <span class="dot-1">&#8226;</span>
+        <span class="dot-2">&#8226;</span>
+        <span class="dot-3">&#8226;</span>
+    </div>
+    <div class="ball">Please Wait...</div>      
+</body>
+</html>
